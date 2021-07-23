@@ -1,0 +1,21 @@
+{% extends 'products/base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% block content %}
+<div class="container" style='width:60%;margin-top:30px'>
+  <h1>Subscribe Here</h1>
+  <hr>
+  <form class="" action="" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-lg btn btn-outline-success">Submit</button>
+    </div>
+    {% endbuttons %}
+    <!-- {{ form.as_p }} -->
+    <!-- <input type="submit" name="" value="Submit"> -->
+  </form>
+</div>
+
+{% endblock %}

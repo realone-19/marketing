@@ -1,0 +1,61 @@
+{% extends 'products/base.html' %}
+{% load static %}
+{% block content %}
+<section>
+   <div class="container">
+       <div class="contactinfo">
+           <div class="">
+               <h2>Contact Info</h2>
+               <ul class="info">
+                   <li>
+                       <span><img src="{% static 'css/images/location.png' %}" alt=""></span>
+                       <span>17 Gbajumo Crescent Surulere Lagos</span>
+                   </li>
+                   <li>
+                       <span><img src="{% static 'css/images/mail.png' %}" alt=""></span>
+                       <span>bashmohomes@gmail.com</span>
+                   </li>
+                   <li>
+                       <span><img src="{% static 'css/images/call.png' %}" alt=""></span>
+                       <span>09025747373</span>
+                   </li>
+               </ul>
+               <ul class="sci">
+                   <li><a href="" class="fa fa-facebook"></a></li>
+                   <li><a href="" class="fa fa-instagram"></a></li>
+                   <li><a href="" class="fa fa-whatsapp"></a></li>
+                   <!-- <li><a href=""><img src="3.png" alt=""></a></li> -->
+               </ul>
+           </div>
+       </div>
+       <div class="contactForm">
+           <h2>Send a Message</h2>
+           <div class="formBox">
+               <div class="inputBox w50">
+                   <input type="text" name="" required>
+                   <span>First Name</span>
+               </div>
+               <div class="inputBox w50">
+                   <input type="text" name="" required>
+                   <span>Last Name</span>
+               </div>
+               <div class="inputBox w50">
+                   <input type="text" name="" required>
+                   <span>Email Address</span>
+               </div>
+               <div class="inputBox w50">
+                   <input type="text" name="" required>
+                   <span>Mobile Number</span>
+               </div>
+               <div class="inputBox w100">
+                   <textarea name="" required></textarea>
+                   <span>Type in your message...</span>
+               </div>
+               <div class="inputBox w100">
+                   <input type="submit" value="Send" required>
+               </div>
+           </div>
+       </div>
+   </div>
+</section>
+{% endblock %}

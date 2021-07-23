@@ -1,0 +1,22 @@
+{% extends 'customer_info/base.html' %}
+  {% block content %}
+  <div class="container" style="margin-top:40px; width:50%">
+    {% if form.errors %}
+      <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    <form class="" action="{% url 'customer_info:user_login' %}" method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="username" class="form-label"><strong>Username</strong></label>
+        <input type="text" class="form-control" name="username" placeholder="laide">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label"><strong>Password</strong></label>
+        <input type="password" class="form-control" name="password" placeholder="******">
+      </div>
+      <div class="mb-3">
+        <input type="Submit" class="form-control btn btn-primary" id="FormControlInput2" value="Log In">
+      </div>
+    </form>
+  </div>
+  {% endblock %}

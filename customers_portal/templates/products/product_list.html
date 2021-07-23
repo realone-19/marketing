@@ -1,0 +1,126 @@
+{% extends 'products/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<div class="container" style="margin-top:20px">
+  <div class="row">
+  {% for product in product_list %}
+    {% if forloop.first %}
+    <div class="col">
+        <div class="card" style="width: 22rem;">
+          {% if product.category == 'Residential' %}
+          <img src="{% static 'css/images/loginImg.jpeg' %}" class="card-img-top" alt="...">
+          {% elif product.category == 'Farm Land' %}
+          <img src="{% static 'css/images/farm.jpeg' %}" class="card-img-top" alt="...">
+          {% elif product.category == 'Carcass' %}
+          <img src="{% static 'css/images/carcass.jpeg' %}" class="card-img-top" alt="...">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title" style="text-decoration:underline">{{product.name | upper}}</h5>
+            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><a style='text-decoration:none;color:white' href="{% url 'products:prospect' %}">Subcribe</a></button>
+            <p><small class="card-text">Stop procrastinating, take a decision today, get your own land and become a home owner.</small></p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Location: {{ product.locaton }}</strong></li>
+            <li class="list-group-item"><strong>Price: </strong><small style="text-decoration:line-through">{{ product.price | intcomma}}</small></li>
+            <li class="list-group-item"><strong>Discounted Price: </strong>{{ product.discounted_price | intcomma }}</li>
+          </ul>
+          <div class="card-body">
+            <span class="badge rounded-pill bg-info"><small>outright and flexible payment plans apply</small></span>
+            <!-- <span class="badge rounded-pill bg-primary">{{ product.likes }}</span> -->
+            <!-- <form class="" action="{{product.like}}" method="update">
+              <input class="btn btn-secondary btn-sm" type="submit" name="" value="Like">
+            </form> -->
+            <!-- <button onclick="{{product.like}}" class="btn btn-secondary btn-sm" type="button" name="button">like</button>
+            <script type="text/javascript">
+              const button = document.querySelector('button');
+                    button.addEventListener('click', event => {
+                        product.like;
+                    });
+
+            </script> -->
+            <!-- <a href="{{ product.like }}" class="card-link" style="color:green;margin-left:8px">Like</a> -->
+          </div>
+        </div>
+    </div>
+    {% elif forloop.counter  == 2 %}
+    <div class="col">
+        <div class="card" style="width: 22rem;">
+          {% if product.category == 'Residential' %}
+          <img src="{% static 'css/images/loginImg.jpeg' %}" class="card-img-top" alt="...">
+          {% elif product.category == 'Farm Land' %}
+          <img src="{% static 'css/images/farm.jpeg' %}" class="card-img-top" alt="...">
+          {% elif product.category == 'Carcass' %}
+          <img src="{% static 'css/images/carcass.jpeg' %}" class="card-img-top" alt="...">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title" style="text-decoration:underline">{{product.name | upper}}</h5>
+            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><a style='text-decoration:none;color:white' href="{% url 'products:prospect' %}">Subcribe</a></button>
+            <p><small class="card-text">Stop procrastinating, take a decision today, get your own land and become a home owner.</small></p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Location: {{ product.locaton }}</strong></li>
+            <li class="list-group-item"><strong>Price: </strong><small style="text-decoration:line-through">{{ product.price | intcomma}}</small></li>
+            <li class="list-group-item"><strong>Discounted Price: </strong>{{ product.discounted_price | intcomma }}</li>
+          </ul>
+          <div class="card-body">
+            <span class="badge rounded-pill bg-info"><small>outright and flexible payment plans apply</small></span>
+            <!-- <span class="badge rounded-pill bg-primary">{{ product.likes }}</span>
+            <a href="#" class="card-link" style="color:green;margin-left:8px">Like</a> -->
+          </div>
+        </div>
+    </div>
+    {% elif forloop.counter  == 3 %}
+    <div class="col">
+        <div class="card" style="width: 22rem;">
+          {% if product.category == 'Residential' %}
+          <img src="{% static 'css/images/loginImg.jpeg' %}" class="card-img-top" alt="...">
+          {% elif product.category == 'Farm Land' %}
+          <img src="{% static 'css/images/farm.jpeg' %}" class="card-img-top" alt="...">
+          {% elif product.category == 'Carcass' %}
+          <img src="{% static 'css/images/carcass.jpeg' %}" class="card-img-top" alt="...">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title" style="text-decoration:underline">{{product.name | upper }}</h5>
+            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><a style='text-decoration:none;color:white' href="{% url 'products:prospect' %}">Subcribe</a></button>
+            <p><small class="card-text">Stop procrastinating, take a decision today, get your own land and become a home owner.</small></p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Location: {{ product.locaton }}</strong></li>
+            <li class="list-group-item"><strong>Price: </strong><small style="text-decoration:line-through">{{ product.price | intcomma}}</small></li>
+            <li class="list-group-item"><strong>Discounted Price: </strong>{{ product.discounted_price | intcomma }}</li>
+          </ul>
+          <div class="card-body">
+            <span class="badge rounded-pill bg-info"><small>outright and flexible payment plans apply</small></span>
+            <!-- <a href="#" class="card-link" style="color:green;margin-left:8px">like</a> -->
+          </div>
+        </div>
+    </div>
+
+{% endif %}
+{% endfor%}
+</div>
+</div>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination pagination-lg justify-content-center">
+    {% if page_obj.has_previous %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a>
+    </li>
+    {% endif %}
+    <span class="page-link">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+    </span>
+    {% if page_obj.has_next %}
+
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>
+{% endblock %}

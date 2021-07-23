@@ -1,0 +1,39 @@
+{% extends 'customer_info/base.html' %}
+{% load humanize %}
+{% block content %}
+  <div class="container">
+      <h1>PAYMENT DETAILS</h1>
+      <!-- {% if customer.balance == 0 %}
+        <div class="alert alert-success" role="alert">
+          Completed payment
+        </div>
+      {% else %}
+        <div class="alert alert-warning" role="alert">
+          <h5><strong>NOTE:</strong> You Have {{customer.registration_date|timesince}} to complete your payment</h5>
+        </div>
+      {% endif %} -->
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th scope="col">FULL NAME</th>
+              <th scope="col">AMOUNT</th>
+              <th scope="col">DATE</th>
+              <th scope="col">RECIEPT NUMBER</th>
+              <th scope="col">BALANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for record in account_detail_list %}
+              <tr>
+                <td>{{record.customer}}</td>
+                <td>{{record.amount_paid  | intcomma }}</td>
+                <td>{{record.date}}</td>
+                <td>000{{record.reciept_number}}</td>
+                <td>{{record.balance  | intcomma }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+          <a class="btn btn-primary" type="button" style='padding:5px' href="{% url 'customer_info:detail' user.userprofileinfo.phone_number %}">PROFILE</a>
+  </div>
+{% endblock%}
